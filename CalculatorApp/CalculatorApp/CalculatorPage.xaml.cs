@@ -16,6 +16,7 @@ namespace CalculatorApp
             InitializeComponent();
         }
 
+
         public String Work(String strA, String strB, Char charC)
         {
             Int32 intA = Convert.ToInt32(strA);
