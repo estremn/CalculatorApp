@@ -15,11 +15,21 @@ namespace CalculatorApp
         {
             InitializeComponent();
         }
-
-        public String Work(String strA, String strB, Char charC)
+        
+        private String Work(String strA, String strB, Char charC)
         {
-            Int32 intA = Convert.ToInt32(strA);
-            Int32 intB = Convert.ToInt32(strB);
+            Int32 intA;
+            Int32 intB;
+
+            try
+            {
+                intA = Convert.ToInt32(strA);
+                intB = Convert.ToInt32(strB);
+            }
+            catch (Exception ex)
+            {
+                return "Invalid Input";
+            }
 
             if (charC == '+')
             {
@@ -84,6 +94,13 @@ namespace CalculatorApp
             return a % b;
         }
 
-
+        private void Clear()
+        {
+            if (strOutput.Text != "")
+            {
+                strOutputRecord.Text += " " + strOutput.Text;
+                strOutput.Text = "";
+            }
+        }
     }
 }
