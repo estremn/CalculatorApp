@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CalculatorApp.CalculatorPage">
 
-  <Grid x:Name ="LayoutRoot">
+  <Grid x:Name ="LayoutRoot" Padding="6" GridSpacing="6">
     
     <Grid.RowDefinitions>
       <RowDefinition Height="1.5*"/>
@@ -24,11 +24,11 @@
     </Grid.ColumnDefinitions>
 
     <Grid.RowSpacing>
-      <OnPlatform x:TypeArguments="x:Double" iOS="8" WinPhone="-10"/>
+      <OnPlatform x:TypeArguments="x:Double" iOS="8" WinPhone="10"/>
     </Grid.RowSpacing>
 
     <Grid.ColumnSpacing>
-      <OnPlatform x:TypeArguments="x:Double" iOS="8" WinPhone="-10"/>
+      <OnPlatform x:TypeArguments="x:Double" iOS="8" WinPhone="10"/>
     </Grid.ColumnSpacing>
 
     <ContentView Padding="8" Grid.Row="0" Grid.ColumnSpan="4">

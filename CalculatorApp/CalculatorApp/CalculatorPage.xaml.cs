@@ -19,6 +19,7 @@ namespace CalculatorApp
         public string strFirstInput = "";
         public string strSecondInput = "";
         public char charOperator;
+        private bool postCalc = false;
 
         //Logic
         private string Calculate(string strA, string strB, char charC)
@@ -36,7 +37,7 @@ namespace CalculatorApp
             {
                 return "Invalid Input";
             }
-            
+
             if (charC == '+')
             {
                 return Add(intA, intB).ToString();
@@ -82,13 +83,36 @@ namespace CalculatorApp
             }
         }
 
+        private void Process(bool newOperator)
+        {
+            if (strFirstInput.Length > 0 && charOperator.ToString().Length > 0 && strSecondInput.Length > 0)
+            {
+                string strCalcResult = Calculate(strFirstInput, strSecondInput, charOperator);
+                strOutputRecord.Text = strFirstInput + " " + charOperator + " " + strSecondInput + " " + strCalcResult;
+
+                if (newOperator)
+                {
+                    postCalc = false;
+                }
+                else
+                {
+                    postCalc = true;
+                }
+            }
+            else
+            {
+
+            }
+
+        }
+
         //Booleans
-        private Boolean Is0()
+        private bool Is0()
         {
             return (strOutput.Text == "0" || strOutput.Text == "");
         }
 
-        private Boolean CapReached()
+        private bool CapReached()
         {
             int maxLength = 10;
             return strOutput.Text.Length < maxLength;
@@ -110,7 +134,7 @@ namespace CalculatorApp
             return a * b;
         }
 
-        private Double Divide(int a, int b)
+        private double Divide(int a, int b)
         {
             return a / b;
         }
@@ -122,11 +146,9 @@ namespace CalculatorApp
 
         private void Clear()
         {
-            if (strOutput.Text != "")
-            {
-                strOutput.Text = "";
-                strOutputRecord.Text = "";
-            }
+            strOutput.Text = "";
+            strFirstInput = "";
+            strSecondInput = "";
         }
 
         //private void btn0_Click(object btn0, EventArgs e)
@@ -137,20 +159,20 @@ namespace CalculatorApp
         //    }
         //}
 
-        //private void btn1_Click(Trigger btn1_Clicked, EventArgs e)
-        //{
-        //    if (!CapReached())
-        //    {
-        //        if (Is0())
-        //        {
-        //            strOutput.Text = "1";
-        //        }
-        //        else
-        //        {
-        //            strOutput.Text += "1";
-        //        }
-        //    }
-        //}
+        private void btn1_Click(BindableObject btn1, EventArgs e)
+        {
+            if (!CapReached() || postCalc)
+            {
+                if (Is0() || postCalc)
+                {
+                    strOutput.Text = "1";
+                }
+                else
+                {
+                    strOutput.Text += "1";
+                }
+            }
+        }
 
     }
 }
