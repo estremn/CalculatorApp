@@ -15,22 +15,28 @@ namespace CalculatorApp
         {
             InitializeComponent();
         }
-        
-        private String Work(String strA, String strB, Char charC)
-        {
-            Int32 intA;
-            Int32 intB;
 
+        public string strFirstInput = "";
+        public string strSecondInput = "";
+        public char charOperator;
+
+        //Logic
+        private string Calculate(string strA, string strB, char charC)
+        {
+            int intA;
+            int intB;
+
+            //Foolproofing
             try
             {
-                intA = Convert.ToInt32(strA);
-                intB = Convert.ToInt32(strB);
+                intA = Convert.ToInt32(strA.Trim());
+                intB = Convert.ToInt32(strB.Trim());
             }
             catch (Exception ex)
             {
                 return "Invalid Input";
             }
-
+            
             if (charC == '+')
             {
                 return Add(intA, intB).ToString();
@@ -51,7 +57,14 @@ namespace CalculatorApp
                     {
                         if (charC == '/')
                         {
-                            return Divide(intA, intB).ToString();
+                            if (intB == 0)
+                            {
+                                return "Cannot Divide by 0";
+                            }
+                            else
+                            {
+                                return Divide(intA, intB).ToString();
+                            }
                         }
                         else
                         {
@@ -69,27 +82,40 @@ namespace CalculatorApp
             }
         }
 
-        private Int32 Add(Int32 a, Int32 b)
+        //Booleans
+        private Boolean Is0()
+        {
+            return (strOutput.Text == "0" || strOutput.Text == "");
+        }
+
+        private Boolean CapReached()
+        {
+            int maxLength = 10;
+            return strOutput.Text.Length < maxLength;
+        }
+
+        //Function Library
+        private int Add(int a, int b)
         {
             return a + b;
         }
 
-        private Int32 Subtract(Int32 a, Int32 b)
+        private int Subtract(int a, int b)
         {
             return a - b;
         }
 
-        private Int32 Multiply(Int32 a, Int32 b)
+        private int Multiply(int a, int b)
         {
             return a * b;
         }
 
-        private Double Divide(Int32 a, Int32 b)
+        private Double Divide(int a, int b)
         {
             return a / b;
         }
 
-        private Int32 Mod(Int32 a, Int32 b)
+        private int Mod(int a, int b)
         {
             return a % b;
         }
@@ -98,9 +124,33 @@ namespace CalculatorApp
         {
             if (strOutput.Text != "")
             {
-                strOutputRecord.Text += " " + strOutput.Text;
                 strOutput.Text = "";
+                strOutputRecord.Text = "";
             }
         }
+
+        //private void btn0_Click(object btn0, EventArgs e)
+        //{
+        //    if (!CapReached() && !Is0())
+        //    {
+        //        strOutput.Text += "0";
+        //    }
+        //}
+
+        //private void btn1_Click(Trigger btn1_Clicked, EventArgs e)
+        //{
+        //    if (!CapReached())
+        //    {
+        //        if (Is0())
+        //        {
+        //            strOutput.Text = "1";
+        //        }
+        //        else
+        //        {
+        //            strOutput.Text += "1";
+        //        }
+        //    }
+        //}
+
     }
 }
