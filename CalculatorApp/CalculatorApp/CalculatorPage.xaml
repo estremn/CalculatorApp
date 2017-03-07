@@ -47,29 +47,29 @@
       </Label>
     </ContentView>
 
-    <Button x:Name="btnClear" Text="C" Grid.Row="2" Grid.Column="0" Command="{Binding CalculatorCommand}" CommandParameter="C"/>
-    <Button x:Name="btnPar" Text="()" Grid.Row="2" Grid.Column="1" Command="{Binding CalculatorCommand}" CommandParameter="()"/>
-    <Button x:Name="btnMod" Text="%" Grid.Row="2" Grid.Column="2" Command="{Binding CalculatorCommand}" CommandParameter="%"/>
-    <Button x:Name="btnDivide" Text="/" Grid.Row="2" Grid.Column="3" Command="{Binding CalculatorCommand}" CommandParameter="/"/>
+    <Button x:Name="btnClear" Text="C" Grid.Row="2" Grid.Column="0"/>
+    <Button x:Name="btnPar" Text="()" Grid.Row="2" Grid.Column="1"/>
+    <Button x:Name="btnMod" Text="%" Grid.Row="2" Grid.Column="2" Clicked="onOperatorClicked"/>
+    <Button x:Name="btnDivide" Text="/" Grid.Row="2" Grid.Column="3" Clicked="onOperatorClicked"/>
 
-    <Button x:Name="btn7" Text="7" Grid.Row="3" Grid.Column="0" Command="{Binding CalculatorCommand}" CommandParameter="7"/>
-    <Button x:Name="btn8" Text="8" Grid.Row="3" Grid.Column="1" Command="{Binding CalculatorCommand}" CommandParameter="8"/>
-    <Button x:Name="btn9" Text="9" Grid.Row="3" Grid.Column="2" Command="{Binding CalculatorCommand}" CommandParameter="9"/>
-    <Button x:Name="btnMultiply" Text="X" Grid.Row="3" Grid.Column="3" Command="{Binding CalculatorCommand}" CommandParameter="X"/>
+    <Button x:Name="btn7" Text="7" Grid.Row="3" Grid.Column="0" Clicked="onNumberClicked"/>
+    <Button x:Name="btn8" Text="8" Grid.Row="3" Grid.Column="1" Clicked="onNumberClicked"/>
+    <Button x:Name="btn9" Text="9" Grid.Row="3" Grid.Column="2" Clicked="onNumberClicked"/>
+    <Button x:Name="btnMultiply" Text="X" Grid.Row="3" Grid.Column="3" Clicked="onOperatorClicked"/>
 
-    <Button x:Name="btn4" Text="4" Grid.Row="4" Grid.Column="0" Command="{Binding CalculatorCommand}" CommandParameter="4"/>
-    <Button x:Name="btn5" Text="5" Grid.Row="4" Grid.Column="1" Command="{Binding CalculatorCommand}" CommandParameter="5"/>
-    <Button x:Name="btn6" Text="6" Grid.Row="4" Grid.Column="2" Command="{Binding CalculatorCommand}" CommandParameter="6"/>
-    <Button x:Name="btnMinus" Text="-" Grid.Row="4" Grid.Column="3" Command="{Binding CalculatorCommand}" CommandParameter="-"/>
+    <Button x:Name="btn4" Text="4" Grid.Row="4" Grid.Column="0" Clicked="onNumberClicked"/>
+    <Button x:Name="btn5" Text="5" Grid.Row="4" Grid.Column="1" Clicked="onNumberClicked"/>
+    <Button x:Name="btn6" Text="6" Grid.Row="4" Grid.Column="2" Clicked="onNumberClicked"/>
+    <Button x:Name="btnMinus" Text="-" Grid.Row="4" Grid.Column="3" Clicked="onOperatorClicked"/>
 
-    <Button x:Name="btn1" Text="1" Grid.Row="5" Grid.Column="0" Command="{Binding CalculatorCommand}" CommandParameter="1"/>
-    <Button x:Name="btn2" Text="2" Grid.Row="5" Grid.Column="1" Command="{Binding CalculatorCommand}" CommandParameter="2"/>
-    <Button x:Name="btn3" Text="3" Grid.Row="5" Grid.Column="2" Command="{Binding CalculatorCommand}" CommandParameter="3"/>
-    <Button x:Name="btnPlus" Text="+" Grid.Row="5" Grid.Column="3" Command="{Binding CalculatorCommand}" CommandParameter="+"/>
+    <Button x:Name="btn1" Text="1" Grid.Row="5" Grid.Column="0" Clicked="onNumberClicked"/>
+    <Button x:Name="btn2" Text="2" Grid.Row="5" Grid.Column="1" Clicked="onNumberClicked"/>
+    <Button x:Name="btn3" Text="3" Grid.Row="5" Grid.Column="2" Clicked="onNumberClicked"/>
+    <Button x:Name="btnPlus" Text="+" Grid.Row="5" Grid.Column="3" Clicked="onOperatorClicked"/>
 
-    <Button x:Name="btnPlusMinus" Text="+/-" Grid.Row="6" Grid.Column="0" Command="{Binding CalculatorCommand}" CommandParameter="+/-"/>
-    <Button x:Name="btn0" Text="0" Grid.Row="6" Grid.Column="1" Command="{Binding CalculatorCommand}" CommandParameter="0"/>
-    <Button x:Name="btnEquals" Text="=" Grid.Row="6" Grid.ColumnSpan="2" Grid.Column="2" Command="{Binding CalculatorCommand}" CommandParameter="="/>
+    <Button x:Name="btnPlusMinus" Text="+/-" Grid.Row="6" Grid.Column="0"/>
+    <Button x:Name="btn0" Text="0" Grid.Row="6" Grid.Column="1" licked="onNumberClicked"/>
+    <Button x:Name="btnEquals" Text="=" Grid.Row="6" Grid.ColumnSpan="2" Grid.Column="2" Clicked="onEqualsClicked"/>
 
   </Grid>
 </ContentPage>
