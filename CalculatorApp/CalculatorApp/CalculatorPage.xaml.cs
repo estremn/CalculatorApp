@@ -91,7 +91,8 @@ namespace CalculatorApp
         private Boolean CapReached()
         {
             int maxLength = 10;
-            return strOutput.Text.Length < maxLength;
+            return false;
+            //return strOutput.Text.Length < maxLength;
         }
 
         //Function Library
@@ -137,19 +138,21 @@ namespace CalculatorApp
             }
         }
 
-        public void onNumberClicked(object sender, EventArgs e)
+        public void onNumClicked(object sender, EventArgs e)
         {
-            if (!CapReached())
-            {
-                if (Is0())
-                {
-                    strOutput.Text = "1";
-                }
-                else
-                {
-                    strOutput.Text += "1";
-                }
-            }
+            Button btn = (Button)sender;
+            strOutput.Text += btn.Text;
+        }
+
+        public void onOperatorClicked(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            strOutput.Text += btn.Text;
+        }
+
+        public void onEqualsClicked(object sender, EventArgs e)
+        {
+            
         }
 
     }
